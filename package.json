@@ -1,0 +1,80 @@
+{
+  "name": "slickgrid-universal",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "bootstrap": "lerna bootstrap --use-workspaces",
+    "prebundle": "npm run lint",
+    "bundle": "lerna run bundle --stream",
+    "prebundle:zip": "npm run bundle",
+    "bundle:zip": "lerna run bundle:zip --stream",
+    "prebundle:with-tests": "npm run bundle",
+    "bundle:with-tests": "npm run test",
+    "build": "lerna run build --stream",
+    "build:demo": "lerna run build:demo --stream",
+    "rebuild": "run-s clean lint build",
+    "clean": "rimraf --maxBusyTries=10 packages/*/dist dist",
+    "cypress": "cypress open --config-file test/cypress.json",
+    "cypress:ci": "cypress run --config-file test/cypress.json --reporter mochawesome",
+    "dev:watch": "lerna run dev:watch --parallel",
+    "diff": "lerna diff",
+    "updated": "lerna updated",
+    "clean:tsconfig-build-cache": "rimraf --maxBusyTries=10 packages/*/dist/tsconfig.tsbuildinfo",
+    "new-version": "lerna version --conventional-commits",
+    "prepublishOnly": "lerna run package:remove-browser-prop",
+    "publish": "lerna publish from-package --registry=https://registry.npmjs.org/",
+    "postpublish": "lerna run package:add-browser-prop",
+    "serve:demo": "http-server ./docs -p 8888 -a localhost",
+    "lint": "eslint packages/** --ext .ts",
+    "test": "npx jest --runInBand --coverage=true --config ./test/jest.config.js",
+    "test:ci": "npx jest --runInBand --coverage=true --ci --config ./test/jest.config.js",
+    "test:watch": "npx jest --watch --config ./test/jest.config.js"
+  },
+  "comments": {
+    "create-new-version": "To create a new version with Lerna, run the following scripts (1) 'bundle', (2) 'new-version' and (3) 'publish' to finally push to NPM."
+  },
+  "workspaces": {
+    "packages": [
+      "examples/*",
+      "packages/*"
+    ],
+    "nohoist": [
+      "**/mochawesome",
+      "**/mochawesome/**",
+      "**/mocha",
+      "**/mocha/**",
+      "**/jest",
+      "**/jest/**",
+      "**/cypress",
+      "**/cypress/**"
+    ]
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.20",
+    "@types/node": "^14.14.22",
+    "@typescript-eslint/eslint-plugin": "^4.14.2",
+    "@typescript-eslint/parser": "^4.14.2",
+    "cypress": "^6.4.0",
+    "eslint": "^7.19.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prefer-arrow": "^1.2.3",
+    "http-server": "^0.12.3",
+    "jest": "^26.6.3",
+    "jest-cli": "^26.6.3",
+    "jest-environment-jsdom": "^26.6.2",
+    "jest-extended": "^0.11.5",
+    "jest-junit": "^12.0.0",
+    "jsdom": "^16.4.0",
+    "jsdom-global": "^3.0.2",
+    "lerna": "^3.22.1",
+    "mocha": "^8.2.1",
+    "mochawesome": "^6.2.1",
+    "npm-run-all": "^4.1.5",
+    "ts-jest": "^26.5.0",
+    "typescript": "^4.1.3"
+  },
+  "engines": {
+    "node": ">=14.15.0",
+    "npm": ">=6.14.8"
+  }
+}

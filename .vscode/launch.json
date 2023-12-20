@@ -1,0 +1,42 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Chrome Debugger",
+      "type": "chrome",
+      "request": "launch",
+      "breakOnLoad": false,
+      "url": "http://localhost:8888",
+      "webRoot": "${workspaceRoot}",
+      "userDataDir": "${workspaceRoot}/.chrome",
+      "trace": true,
+      "sourceMapPathOverrides": {
+        "webpack:///${workspaceRoot}/packages/*": "${webRoot}/packages/*",
+        "webpack://webpack-demo-vanilla-bundle/../../packages/*": "${webRoot}/packages/*",
+        "webpack:///./src/*": "${webRoot}/examples/webpack-demo-vanilla-bundle/src/*",
+        "webpack://webpack-demo-vanilla-bundle/./src/*": "${webRoot}/examples/webpack-demo-vanilla-bundle/src/*"
+      }
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Jest Current Spec File",
+      "program": "${workspaceFolder}/node_modules/.bin/jest",
+      "args": [
+        "--runInBand",
+        "${fileBasename}",
+        "--config",
+        "${workspaceFolder}/test/jest.config.js"
+      ],
+      "console": "internalConsole",
+      "internalConsoleOptions": "neverOpen",
+      "disableOptimisticBPs": true,
+      "windows": {
+        "program": "${workspaceFolder}/node_modules/jest/bin/jest"
+      }
+    }
+  ]
+}

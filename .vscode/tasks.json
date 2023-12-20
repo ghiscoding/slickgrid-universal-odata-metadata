@@ -1,0 +1,35 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Bundle Library",
+      "type": "shell",
+      "command": "npm run bundle",
+      "problemMatcher": []
+    },
+    {
+      "label": "Run Jest Unit Tests (watch)",
+      "type": "shell",
+      "command": "npm run test:watch",
+      "problemMatcher": []
+    },
+    {
+      "label": "Run Jest Test Coverage",
+      "type": "shell",
+      "command": "npm run test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Start Library Development",
+      "type": "shell",
+      "command": "npm run dev:watch",
+      "problemMatcher": []
+    },
+    {
+      "label": "Prepare New Release",
+      "type": "shell",
+      "command": "npm run new-version",
+      "problemMatcher": []
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+<h3 class="title is-3">
+  Example 05 - Tree Data
+  <span class="subtitle">(from a flat dataset with <code>parentId</code> references)</span>
+  <div class="subtitle" style="float: right; margin-top: -20px">
+    <a class="is-size-5"
+       target="_blank"
+       href="https://github.com/ghiscoding/slickgrid-universal/blob/master/examples/webpack-demo-vanilla-bundle/src/examples/example05.ts">
+      <span class="mdi mdi-link mdi-v-align-sub"></span> code
+    </a>
+  </div>
+</h3>
+<h6 class="title is-6 italic">
+  NOTE: The grid will automatically sort Ascending with the column that has the Tree Data, you could add a
+  "sortByFieldId" in your column "treeData" option if you wish to sort on a different column
+</h6>
+<div class="columns">
+  <div class="column is-narrow">
+    <button onclick.delegate="addNewRow()" class="button is-small is-info">
+      <span class="icon mdi mdi-plus"></span>
+      <span>Add New Item (in 1st group)</span>
+    </button>
+    <button onclick.delegate="collapseAll()" data-test="collapse-all" class="button is-small">
+      <span class="icon mdi mdi-arrow-collapse"></span>
+      <span>Collapse All</span>
+    </button>
+    <button onclick.delegate="expandAll()" data-test="expand-all" class="button is-small">
+      <span class="icon mdi mdi-arrow-expand"></span>
+      <span>Expand All</span>
+    </button>
+    <button onclick.delegate="logFlatStructure()" class="button is-small">
+      <span>Log Flag Structure</span>
+    </button>
+    <button onclick.delegate="logExpandedStructure()" class="button is-small">
+      <span>Log Expanded Structure</span>
+    </button>
+  </div>
+</div>
+
+<div class="grid5">
+</div>
